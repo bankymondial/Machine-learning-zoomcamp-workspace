@@ -1,6 +1,6 @@
 import pickle
 
-import pandas as pd
+import pandas as pd # type: ignore
 import numpy as np
 
 from sklearn.model_selection import train_test_split
@@ -118,34 +118,6 @@ with open(output_file, 'wb') as f_out:
 
 print(f'the model is saved to {output_file}')
 
-f_out = open('output_file', 'wb')
-pickle.dump((dv, model), f_out)
-f_out.close()
 
 
-customer = {
-    'gender': 'female',
-    'seniorcitizen': 0,
-    'partner': 'yes',
-    'dependents': 'no',
-    'phoneservice': 'no',
-    'multiplelines': 'no_phone_service',
-    'internetservice': 'dsl',
-    'onlinesecurity': 'no',
-    'onlinebackup': 'yes',
-    'deviceprotection': 'no',
-    'techsupport': 'no',
-    'streamingtv': 'no',
-    'streamingmovies': 'no',
-    'contract': 'month-to-month',
-    'paperlessbilling': 'yes',
-    'paymentmethod': 'electronic_check',
-    'tenure': 1,
-    'monthlycharges': 29.85,
-    'totalcharges': 29.85
-}
-
-X = dv.transform([customer])
-
-model.predict_proba(X)[0, 1]
-
+ 
