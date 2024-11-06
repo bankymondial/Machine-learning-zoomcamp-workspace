@@ -42,6 +42,42 @@ deploy it as a web service.
 * Building a docker image
 * Running a docker image
 
+*docker run -it --rm python:3.8.12-slim
+*exit (Ctrl+D)
+*docker run -it --rm --entrypoint=bash python:3.8.12-slim
+*apt-get update
+*apt-get install wget
+root@1e47eee68b20:/# mkdir test
+root@1e47eee68b20:/# cd test/
+root@1e47eee68b20:/test# ls
+root@1e47eee68b20:/test# pwd/test
+root@1e47eee68b20:/test# pip install pipenv
+*docker run -it --rm --entrypoint=bash python:3.8.12-slim
+root@b54a08bb7d7e:/# mkdir app
+root@b54a08bb7d7e:/# cd app/
+root@b54a08bb7d7e:/app# ls
+exit
+
+docker build -t zoomcamp-test .
+docker run -it --rm --entrypoint=bash zoomcamp-test
+ls
+
+include RUN pipenv install --system --deploy into Dockerfile document
+exit
+
+docker build -t zoomcamp-test .
+docker run -it --rm --entrypoint=bash zoomcamp-test
+ls
+exit
+
+add COPY ["predict.py", "model_C=1.0.bin", "./"] to Dockerfile document
+then, run docker build -t zoomcamp-test .
+
+docker run -it --rm --entrypoint=bash zoomcamp-test
+ls
+
+gunicorn -bind=0.0.0.0:9696 predict:app
+
 ## 5.7 Deployment to the cloud: AWS Elastic Beanstalk (optional)
 
 * Installing the eb cli
