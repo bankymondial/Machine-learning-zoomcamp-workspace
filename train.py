@@ -118,6 +118,4 @@ with open(output_file, 'wb') as f_out:
 
 print(f'the model is saved to {output_file}')
 
-
-
  
